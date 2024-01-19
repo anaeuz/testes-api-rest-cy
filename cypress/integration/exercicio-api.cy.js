@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
-import contrato from '../contracts/ususarios.contract'
+import contrato from '../contracts/exercicio.contract'
 
 describe('Testes da Funcionalidade Usuários', () => {
      let token
     before(() => {
-        cy.token('fulano@qa.com', 'teste').then(tkn => { token = tkn })
+        cy.token('anapaulaeuz@qa.com.br', 'teste').then(tkn => { token = tkn })
     });
 
     it('Deve validar contrato de usuários', () => {
@@ -24,13 +24,21 @@ describe('Testes da Funcionalidade Usuários', () => {
     });
 
     it('Deve cadastrar um usuário com sucesso', () => {
-     let usuarios = `Usuario${Math.floor(Math.random() * 100000000)}`
+        function gerarEmail() {
+            let dominios= ['@gmail.com', '@outlook.com',]
+            for(var i=0;i<clientes.length;i++){
+                let label   = clientes[i].nome.split(' ');
+                let email   = label[0]+clientes[i].cpf+dominios[Math.floor(Math.random() * 
+               dominios.length)];
+                document.write(email+"<br/>");    
+            }
+         }
      cy.request({
          method: 'POST',
          url: 'usuarios',
          body: {
-             "nome": usuarios,
-             "email": "ana@test.com",
+             "nome": usuario,
+             "email": `usuario${gerarEmail}`,
              "password": "mudar@123",
              "administrador": "Ana"
          },
