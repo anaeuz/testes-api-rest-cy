@@ -28,7 +28,7 @@ describe('Testes da Funcionalidade Usuários', () => {
             let dominios= ['@gmail.com', '@outlook.com',]
             for(var i=0;i<clientes.length;i++){
                 let label   = clientes[i].nome.split(' ');
-                let email   = label[0]+clientes[i].cpf+dominios[Math.floor(Math.random() * 
+                let email   = label[0]+clientes[i].usuario+dominios[Math.floor(Math.random() * 
                dominios.length)];
                 document.write(email+"<br/>");    
             }
